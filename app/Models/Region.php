@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
+    protected $table = 'regiones';
+
+    protected $fillable = ['region', 'sede'];
+
+    public function delegaciones()
+    {
+        return $this->hasMany(Delegacion::class);
+    }     
 }
