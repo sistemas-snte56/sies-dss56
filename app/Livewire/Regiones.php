@@ -23,7 +23,7 @@ class Regiones extends Component
         $regiones = Region::where('region', 'like', '%' . $this->search . '%')
             ->orWhere('sede', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'asc')
-            ->paginate(10);
+            ->paginate(15);
 
         return view('livewire.regiones',[
             'regiones' => $regiones
