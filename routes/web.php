@@ -2,6 +2,7 @@
 
 use App\Livewire\Regiones;
 use App\Livewire\Dashboard;
+use App\Livewire\Delegaciones;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,6 @@ Route::middleware([
     // Dashboard principal Livewire
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/regiones', Regiones::class)->name('regiones');
+    Route::get('/delegaciones', Delegaciones::class)->name('delegaciones');
     // Aquí irán más rutas del sistema (Regiones, Delegaciones, etc.)
 });
