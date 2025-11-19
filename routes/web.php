@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\CentrosTrabajo;
 use App\Livewire\Regiones;
 use App\Livewire\Dashboard;
 use App\Livewire\Delegaciones;
@@ -31,5 +32,5 @@ Route::middleware([
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/regiones', Regiones::class)->name('regiones');
     Route::get('/delegaciones', Delegaciones::class)->name('delegaciones');
-    // Aquí irán más rutas del sistema (Regiones, Delegaciones, etc.)
+    Route::get('/centros-de-trabajo', CentrosTrabajo::class)->name('centros-de-trabajo');
 });
