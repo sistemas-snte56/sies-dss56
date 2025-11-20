@@ -1,9 +1,11 @@
 <?php
 
-use App\Livewire\CentrosTrabajo;
+use App\Livewire\Cargos;
 use App\Livewire\Regiones;
 use App\Livewire\Dashboard;
 use App\Livewire\Delegaciones;
+use App\Livewire\CentrosTrabajo;
+use App\Livewire\NivelesAcademicos;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +35,7 @@ Route::middleware([
     Route::get('/regiones', Regiones::class)->name('regiones');
     Route::get('/delegaciones', Delegaciones::class)->name('delegaciones');
     Route::get('/centros-de-trabajo', CentrosTrabajo::class)->name('centros-de-trabajo');
+    Route::get('/cargos', Cargos::class)->name('cargos');
+    Route::get('/niveles-academicos', NivelesAcademicos::class)->name('niveles-academicos');
+
 });
