@@ -91,60 +91,65 @@
 
                         {{-- Nombre CT --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Nombre del Centro</label>
+                            <label class="block text-gray-600 mb-1"  style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Nombre del Centro de Trabajo o Escula</label>
                             <input type="text" wire:model="nombre_ct" class="w-full border rounded px-3 py-2">
                             @error('nombre_ct') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
                         {{-- Clave CT --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Clave CT</label>
+                            <label class="block text-gray-600 mb-1"  style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Clave CT</label>
                             <input type="text" wire:model="clave_ct" class="w-full border rounded px-3 py-2">
                             @error('clave_ct') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
                         {{-- Código Postal --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Código Postal</label>
-                            <input type="text" wire:model.debounce.500ms="codigo_postal"
+                            <label class="block text-gray-600 mb-1" style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Código Postal</label>
+                            <input type="text" wire:model.lazy="codigo_postal"
                                 class="w-full border rounded px-3 py-2"
-                                maxlength="5">
+                                maxlength="5" placeholder="Ingresa tú ccodigo postal" autocomplete="off">
                             @error('codigo_postal') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
                         {{-- Select Colonias --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Colonia</label>
+                            <label class="block text-gray-600 mb-1"  style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Colonia</label>
 
                             <select wire:model="colonia_id" class="w-full border rounded px-3 py-2">
                                 <option value="">-- Seleccione una colonia --</option>
 
-                                @foreach ($coloniasDelCP as $col)
-                                    <option value="{{ $col->id }}">{{ $col->nombre }}</option>
-                                @endforeach
+
+
+                                @forelse ($coloniasDelCP as $colonia)
+                                    <option value="{{ $colonia->id }}" {{$colonia->id == $colonia_id ? 'selected' : ''}} >{{ $colonia->nombre }}</option>
+                                @empty
+                                    <option disabled>Cargando...</option>
+                                @endforelse
+
                             </select>
 
                             @error('colonia_id') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
-                        {{-- Municipio Auto --}}
+                        {{-- Municipio --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Municipio</label>
+                            <label class="block text-gray-600 mb-1"  style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Municipio</label>
                             <input type="text" class="w-full border rounded px-3 py-2 bg-gray-100" 
-                                wire:model="municipio"
+                                wire:model="municipio_nombre" placeholder="-- Selecciona un municipio --" autocomplete="off"
                                 readonly>
                         </div>
 
                         {{-- Calle --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Calle</label>
+                            <label class="block text-gray-600 mb-1"  style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Calle</label>
                             <input type="text" wire:model="calle" class="w-full border rounded px-3 py-2">
                         </div>
 
                         {{-- Número exterior --}}
                         <div>
-                            <label class="block text-gray-600 mb-1">Número Exterior</label>
-                            <input type="text" wire:model="numero_exterior" class="w-full border rounded px-3 py-2">
+                            <label class="block text-gray-600 mb-1"  style="color: #ee7a00; font-size: 16px; font-weight: bold; margin-top: 4px;">Número Exterior</label>
+                            <input type="text" wire:model="num_ext" class="w-full border rounded px-3 py-2">
                         </div>
 
                         {{-- Estado activo --}}
